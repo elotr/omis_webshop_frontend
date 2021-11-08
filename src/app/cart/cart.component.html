@@ -1,0 +1,33 @@
+<!-- <div>{{ item1.title }}</div>
+
+<div *ngFor = "let item of items">
+    <div>{{ item.price }}</div>
+</div> -->
+
+<div *ngIf="errorMessage" class="bt btn-danger mt-5 px-5 py-5">{{errorMessage}}</div>
+
+<button *ngIf="cartItems.length > 0" (click) = onEmptyCart()>Tyhjenda ostukorv</button>
+
+<br><br>
+
+<div *ngIf="cartItems.length == 0">Ostukorv on tyhi</div>
+
+<div *ngIf="cartItems.length > 0">Ostukorvis on kokku {{cartItems.length}} eset</div>
+
+
+<div *ngFor = "let item of cartItems">
+    <img src="{{ item.imgSrc }}" alt="">
+    <div>{{ item.title }}</div>
+    <div>{{ item.price }}</div>
+    <button (click) = removeFromCart(item)>Eemalda</button>
+</div>
+
+<br><br>
+
+<div *ngIf="cartItems.length > 0">Kokku: {{ sumOfCart }}</div>
+
+
+<div *ngIf="cartItems.length > 0 && loggedIn" (click)="onPayment()">Maksa</div>
+
+
+<div *ngIf="cartItems.length > 0 && !loggedIn" routerLink="/logi-sisse" >Logi maksmiseks sisse!</div>

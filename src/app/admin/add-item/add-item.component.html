@@ -1,0 +1,18 @@
+<button routerLink=".."  class="btn btn-outline-info mt-2 mx-2">Tagasi</button>
+<br><br><br>
+
+ <form (ngSubmit)="onSubmit(addItemForm)" #addItemForm="ngForm">  <!--  FORMGROUP sest siin annad v''rtuse'  -->
+    <label>Nimi</label><br>
+    <input ngModel name="title" type="text" required><br>    <!--  loob v]ti-v''rtus mudeli'  ngModel name="title" -->
+    <label>Hind</label><br>
+    <input ngModel name="price" type="number" required><br>
+    <label>Pilt</label><br>
+    <input ngModel name="imgSrc" type="text" required><br>
+    <label>Kategooria</label><br>
+    <select ngModel name="category" required>
+        <option *ngFor="let category of categoriesInService" [value]="category">{{category}}</option> <!--  [] muutuja nimi, millel saab v''rtust muuta' -->
+    </select><br>
+    <label>N'htavus</label><br>
+    <input ngModel name="isActive" type="checkbox"><br>
+    <button [disabled] = "addItemForm.invalid">Lisa toode</button>
+</form>

@@ -1,0 +1,42 @@
+<div class="col-md-4 offset-md-4">
+    <h1 class="display-4 mt-5 text-center">Registreeru</h1>
+    <form (ngSubmit)="register(registerPerson)" #registerPerson="ngForm" class="row g-3 mb-4 pb-4">
+        
+        <div *ngIf="errorMessage" class="bg-danger bg-gradient text-center py-3 mt-5">{{errorMessage}}</div>
+        <div *ngIf="registerSuccess" class="bg-info bg-gradient text-center py-3 mt-5">{{registerSuccess}}</div>
+
+        <div class="form-floating mt-5">
+            <input ngModel type="text" name="personCode" class="form-control" placeholder="Isikukood" required>
+            <label>Isikukood</label>
+        </div>
+        <div class="form-floating">
+            <input ngModel type="text" name="firstName" class="form-control" placeholder="Eesnimi" >
+            <label>Eesnimi</label>
+        </div>
+        <div class="form-floating">
+            <input ngModel type="text" name="lastName" class="form-control" placeholder="Perekonnanimi" required>
+            <label>Perekonnanimi</label>
+        </div>
+        <div class="form-floating">
+            <input ngModel type="email" name="eMail" class="form-control" placeholder="E-posti aadress" required>
+            <label>E-posti aadress</label>
+        </div>
+        <div class="form-floating">
+            <input ngModel type="text" name="phoneNumber" class="form-control" placeholder="Telefoninumber" required>
+            <label>Telefoninumber</label>
+        </div>
+        
+        <div *ngIf="passwordNoMatch" class="paroolid">{{passwordNoMatch}}</div>
+        
+        <div class="form-floating">
+            <input ngModel type="password" name="password" class="form-control" placeholder="Parool" required>
+            <label>Parool</label>
+        </div>
+        <div class="form-floating">
+            <input ngModel type="password" name="passwordConfirm" class="form-control" placeholder="Parooli kinnitus" required>
+            <label>Parooli kinnitus</label>
+        </div>
+        <button [disabled] = "registerPerson.invalid" class="btn btn-primary d-grid gap-2 col-6 mx-auto">Registreeru</button>
+        
+    </form>
+</div>

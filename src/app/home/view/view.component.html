@@ -1,0 +1,8 @@
+    <div *ngIf="item; else noItemError">
+        <img src="{{item.imgSrc }}">
+        <div>{{ item.title }}</div>
+        <div>{{ item.price }}</div>
+        <button (click) = "onAddToCart(item)">Lisa ostukorvi</button>
+    </div>
+
+    <ng-template #noItemError> <div style="text-align: center; color: red;">Eset ei leitud</div></ng-template>

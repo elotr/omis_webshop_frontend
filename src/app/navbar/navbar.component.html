@@ -1,0 +1,32 @@
+<!-- <div class="navbar">
+    <img class="logo" routerLink="/" src="assets/webshop.png" alt="">
+    <button routerLink="admin">Admini vaade</button>
+    <img class="cart-button" routerLink="ostukorv" src="assets/shoppingcart.svg" alt="">
+</div> -->
+
+
+<nav class="navbar sticky-top navbar-expand-lg py-0 navbar-light bg-light shadow-sm">
+    <div class="container">
+        <a routerLink="/" class="navbar-brand d-flex align-items-center">
+            <!-- Logo Image -->
+            <img src="assets/logo1.png" width="60" alt="" class="d-inline-block align-middle mr-2">
+            <!-- Logo Text -->
+            <span class="text-uppercase font-weight-bold brand-name">E-Pood</span>
+        </a>
+
+        <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+            class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+
+        <div id="navbarSupportedContent" class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <li class="nav-item"><a routerLink="admin" class="nav-link">Admini vaade</a></li>
+                <li class="nav-item" *ngIf="!isLoggedIn" active><a routerLink="registreeru" class="nav-link">Registreeru</a></li>
+                <li class="nav-item" *ngIf="!isLoggedIn"><a routerLink="logi-sisse" class="nav-link">Logi sisse</a></li>
+                <li class="nav-item" *ngIf="isLoggedIn" (click) = "onLogout()"><a class="nav-link">Logi Välja</a></li>
+                <li class="nav-item"><a routerLink="ostukorv" class="nav-link"><img src="assets/cart.png" width="40"
+                            alt="" class="d-inline-block align-middle mr-2"></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

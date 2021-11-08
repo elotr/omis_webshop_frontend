@@ -1,0 +1,10 @@
+<button routerLink=".." class="btn btn-outline-info mt-2 mx-2">Tagasi</button>
+<div *ngFor="let person of personList" class="row mt-5 mx-2">
+    <p>Isikukood: {{person.personCode}}</p>
+    <p>Eesnimi: {{person.firstName}}</p>
+    <p>Perekonnanimi: {{person.lastName}}</p>
+    <p>E-post: {{person.eMail}}</p>
+    <p>Telefon: {{person.phoneNumber}}</p>
+    <button (click)="onRemove(person)" class="btn btn-danger col-1">Kustuta</button>
+    <button routerLink ="/admin/muuda-kasutaja/{{person.personCode}}" class="btn btn-warning col-1">Muuda</button>
+</div>

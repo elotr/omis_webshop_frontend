@@ -1,0 +1,28 @@
+<button routerLink="/admin/kasutajad" class="btn btn-outline-info mt-2 mx-2">Tagasi</button>
+<div class="col-md-4 offset-md-4">
+    <h1 class="display-5 mt-5 text-center">Muuda kirje</h1>
+    <form *ngIf="this.editPersonForm" (ngSubmit)="onSubmit()" [formGroup]="editPersonForm" class="row g-3 mb-4 pb-4">
+        <div class="form-floating mt-5">           
+            <input formControlName="personCode" type="text" class="form-control" required>
+            <label>Isikukood</label>
+        </div>
+        <div class="form-floating">
+            <input formControlName="firstName" type="text" class="form-control" required>
+            <label>Eesnimi</label>
+        </div>
+        <div class="form-floating">
+            <input formControlName="lastName" type="text" class="form-control" required>
+            <label>Perekonnanimi</label>
+        </div>
+        <div class="form-floating">
+            <input formControlName="eMail" type="email" class="form-control" required>
+            <label>E-posti aadress</label>
+        </div>
+        <div class="form-floating">
+            <input formControlName="phoneNumber" type="text" class="form-control" required>
+            <label>Telefoninumber</label>
+        </div>
+        <button [disabled] = "editPersonForm.invalid" class="btn btn-primary d-grid gap-2 col-6 mx-auto">Muuda kirje</button>
+        
+    </form>
+</div>
